@@ -47,14 +47,13 @@ const isAddDisabled = computed(() => {
                         </div>
                         <textarea v-model="newNote" name="note" cols="100" rows="10" class="note"
                             placeholder="Your Notes..."></textarea>
-                        <button class="add-button" @click="addNote()" :disabled="isAddDisabled">Add Note</button>
+                        <button class="add-note-button" @click="addNote()" :disabled="isAddDisabled">Add Note</button>
                     </div>
                 </div>
 
                 <header>
                     <h1 class="header-title">Notes. 
                     <span class="rg">by RG</span></h1>
-                    <button class="add-button" @click="showModal = true">+</button>
                 </header>
                 
                 <div class="cards-container">
@@ -73,21 +72,60 @@ const isAddDisabled = computed(() => {
                     </div>
 
                 </div>
+
+                
+                <button class="add-button" @click="showModal = true" title="Add Note"><span class="add-note-text">Add Note</span>+</button>
             </div>
         </div>
     </main>
 </template>
 
 <style scoped>
-main {
+main .main_content {
     padding-block: 20px 60px
 }
 
-main .main_content header {
+main .main_content .add-button {
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid #47eb07;
+    background-color: #48ff00;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all .3s;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    column-gap: 20px;
+    column-gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+main .main_content .add-button .add-note-text 
+{
+    display: none;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+main .main_content .add-button:hover 
+{
+    width: 150px;
+    border-radius: 10px;
+}
+
+main .main_content .add-button:hover .add-note-text
+{
+    display: block;
+}
+
+main .main_content header {
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(182, 182, 182, 0.1);
@@ -98,31 +136,13 @@ main .main_content header .header-title {
     color: #fff;
     position: relative;
 }
-.rg
+
+main .main_content header .header-title .rg
 {
     font-size: 10px;
     display: block;
     position: absolute;
     bottom: 0;
-}
-
-main .main_content header .add-button {
-    padding: 10px;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 20px;
-    border: 1px solid #47eb07;
-    background-color: #48ff00;
-    cursor: pointer;
-    border-radius: 50%;
-    font-weight: 700;
-    transition: all .3s;
-}
-
-main .main_content header .add-button:hover 
-{
-    transform: scale(1.1);
 }
 
 main .main_content .cards-container {
@@ -286,7 +306,7 @@ main .main_content .overlay .modal .modal-header .close-button:hover
     transform: scale(.9);
 }
 
-main .main_content .overlay .modal .add-button {
+main .main_content .overlay .modal .add-note-button {
     padding: 10px;
     width: 100%;
     font-weight: 700;
