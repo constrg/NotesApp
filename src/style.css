@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-image: linear-gradient(to right top, #07090d, #0d1112, #141616, #191b1a, #1f1f1e);
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  padding-inline: 20px;
+  margin: 0 auto;
+}
